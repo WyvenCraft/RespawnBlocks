@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.wyvencraft</groupId>
     <artifactId>RespawnBlocks</artifactId>
     <version>1.0.0</version>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-
     <build>
         <defaultGoal>clean install</defaultGoal>
-        <finalName>${project.name}</finalName>
         <resources>
             <resource>
                 <filtering>true</filtering>
                 <directory>${basedir}/src/main/resources/</directory>
             </resource>
         </resources>
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -32,22 +24,15 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
                     <outputDirectory>C:/Users/Gustav/Desktop/Test server/plugins/wyvencore/addons</outputDirectory>
-                    <!--                    <outputDirectory>/Users/Gustav/Desktop/Test server/plugins</outputDirectory>-->
-                    <!--                    <outputDirectory>/Users/gustavhaavik/Desktop</outputDirectory>-->
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
-                <configuration>
-                    <!-- put your configurations here -->
-                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -56,10 +41,10 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration/>
             </plugin>
         </plugins>
     </build>
-
     <repositories>
         <repository>
             <id>jitpack.io</id>
@@ -82,21 +67,14 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.wyvencraft</groupId>
-            <artifactId>WyvenCore</artifactId>
-            <version>1.0.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>com.sk89q.worldguard</groupId>
             <artifactId>worldguard-bukkit</artifactId>
             <version>7.0.2</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
 </project>
