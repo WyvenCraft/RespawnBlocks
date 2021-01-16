@@ -1,0 +1,199 @@
+Block_Regen:
+  STONE:
+    resetDelay: 5
+    placeholder: COBBLESTONE
+    worlds:
+      - "Hub"
+    regions:
+      - "coal-mine"
+      - "gold-mine"
+      - "redstone-mine"
+      - "lapis-quarry"
+      - "emerald-sanctuary"
+      - "diamond-reserve"
+      - "obsidian-sanctuary"
+  COAL_ORE:
+    resetDelay: 10
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "coal-mine"
+      - "gold-mine"
+  IRON_ORE:
+    resetDelay: 10
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "gold-mine"
+  GOLD_ORE:
+    resetDelay: 10
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "coal-mine"
+  REDSTONE_ORE:
+    resetDelay: 10
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "redstone-mine"
+  LAPIS_ORE:
+    resetDelay: 10
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "lapis-quarry"
+  EMERALD_ORE:
+    resetDelay: 15
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "emerald-sanctuary"
+  DIAMOND_ORE:
+    resetDelay: 20
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "diamond-reserve"
+      - "obsidian-sanctuary"
+  OBSIDIAN:
+    resetDelay: 10
+    placeholder: STONE
+    worlds:
+      - "Hub"
+    regions:
+      - "obsidian-sanctuary"
+  COBBLESTONE:
+    resetDelay: 10
+    placeholder: BEDROCK
+    worlds:
+      - "Hub"
+    regions:
+      - "coal-mine"
+      - "gold-mine"
+      - "redstone-mine"
+      - "lapis-quarry"
+      - "emerald-sanctuary"
+      - "diamond-reserve"
+      - "obsidian-sanctuary"
+  NETHERRACK:
+    resetDelay: 15
+    placeholder: BEDROCK
+    worlds:
+      - "Hub"
+    regions:
+      - "the-fiery"
+      - "fiery-fortress"
+  NETHER_QUARTZ_ORE:
+    resetDelay: 60
+    placeholder: NETHERRACK
+    worlds:
+      - "Hub"
+    regions:
+      - "the-fiery"
+      - "fiery-fortress"
+  GLOWSTONE:
+    resetDelay: 60
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "the-fiery"
+  GRAVEL:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "graveyard"
+  OAK_LOG:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "oak-forest"
+  BIRCH_LOG:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "birch-forest"
+  SPRUCE_LOG:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "spruce-forest"
+  JUNGLE_LOG:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "jungle-forest"
+  ACACIA_LOG:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "acacia-forest"
+  DARK_OAK_LOG:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "dark-oak-forest"
+  OAK_WOOD:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "oak-forest"
+  BIRCH_WOOD:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "birch-forest"
+  SPRUCE_WOOD:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "spruce-forest"
+  JUNGLE_WOOD:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "jungle-forest"
+  ACACIA_WOOD:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "acacia-forest"
+  DARK_OAK_WOOD:
+    resetDelay: 30
+    placeholder: AIR
+    worlds:
+      - "Hub"
+    regions:
+      - "dark-oak-forest"

@@ -1,0 +1,6 @@
+name: ${project.name}
+display-name: "Respawn Blocks"
+description: "Setup blocks in specific worlguard regions and worlds, that respawns after an x amount of time"
+main: "com.wyvencraft.respawnblocks.RespawnBlocks"
+author: "6u5t4v"
+version: ${project.version}
