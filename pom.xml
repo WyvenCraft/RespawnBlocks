@@ -83,8 +83,8 @@
         </dependency>
         <dependency>
             <groupId>com.github.wyvencraft</groupId>
-            <artifactId>WyvenCore</artifactId>
-            <version>1.0.7</version>
+            <artifactId>WyvenAPI</artifactId>
+            <version>1.0.8</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>

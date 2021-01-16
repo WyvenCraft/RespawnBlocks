@@ -32,7 +32,7 @@ public class Listener implements org.bukkit.event.Listener {
                 respawn = Material.getMaterial(block.getMetadata("BROKEN").get(0).asString());
                 RespawnBlocks.instance.broken.get(block.getLocation()).cancel();
             } else {
-                block.setMetadata("BROKEN", new FixedMetadataValue(RespawnBlocks.instance.getPlugin(), block.getType().name()));
+                block.setMetadata("BROKEN", new FixedMetadataValue(RespawnBlocks.instance.getPlugin().getPlugin(), block.getType().name()));
                 respawn = block.getType();
             }
 
@@ -50,10 +50,10 @@ public class Listener implements org.bukkit.event.Listener {
         return new BukkitRunnable() {
             @Override
             public void run() {
-                location.getBlock().removeMetadata("BROKEN", RespawnBlocks.instance.getPlugin());
+                location.getBlock().removeMetadata("BROKEN", RespawnBlocks.instance.getPlugin().getPlugin());
                 location.getBlock().setType(material);
                 RespawnBlocks.instance.broken.remove(location);
             }
-        }.runTaskLater(RespawnBlocks.instance.getPlugin(), 20L * time);
+        }.runTaskLater(RespawnBlocks.instance.getPlugin().getPlugin(), 20L * time);
     }
 }

@@ -4,9 +4,8 @@ import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
-import com.wyvencraft.wyvencore.WyvenCore;
-import com.wyvencraft.wyvencore.addons.Addon;
-import com.wyvencraft.wyvencore.hooks.Hook;
+import com.wyvencraft.api.addon.Addon;
+import com.wyvencraft.api.integration.WyvenAPI;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -21,7 +20,7 @@ import java.util.List;
 public class RespawnBlocks extends Addon {
     public static RespawnBlocks instance;
 
-    public RespawnBlocks(WyvenCore plugin) {
+    public RespawnBlocks(WyvenAPI plugin) {
         super(plugin);
         instance = this;
     }
