@@ -5,6 +5,7 @@ import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import com.wyvencraft.api.addon.Addon;
+import com.wyvencraft.api.hooks.Hook;
 import com.wyvencraft.api.integration.WyvenAPI;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -16,6 +17,8 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 public class RespawnBlocks extends Addon {
     public static RespawnBlocks instance;
@@ -45,20 +48,16 @@ public class RespawnBlocks extends Addon {
 
                 int delay = matSection.getInt("resetDelay", 0);
 
-                if (delay <= 0) {
-                    getPlugin().getLogger().severe("make sure that delay for " + material + " is greater than zero, setting to 1");
+                if (delay < 1) {
+                    getPlugin().getLogger().severe("make sure that delay for " + material + " is greater than zero. (auto setting to 1)");
                     delay = 1;
                 }
 
-                List<String> worlds = new ArrayList<>();
-                if (matSection.get("worlds") != null)
-                    worlds = matSection.getStringList("worlds");
+                List<String> worlds = matSection.getStringList("worlds");
 
                 List<String> regions = null;
                 if (Hook.isEnabled("WorldGuard")) {
-                    regions = new ArrayList<>();
-                    if (matSection.get("regions") != null)
-                        regions = matSection.getStringList("regions");
+                    regions = matSection.getStringList("regions");
                 }
 
                 Material placeholder = Material.getMaterial(matSection.getString("placeholder", "BEDROCK"));
@@ -110,11 +109,11 @@ public class RespawnBlocks extends Addon {
 
     @Override
     public void onDisable() {
-
+        // Stop tasks and reset all broken blocks
     }
 
     @Override
     public void reloadConfig() {
-
+        reloadConfig("respawnblocks.yml");
     }
 }

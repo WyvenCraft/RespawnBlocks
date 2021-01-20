@@ -5,7 +5,6 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -13,7 +12,8 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class Listener implements org.bukkit.event.Listener {
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    //(priority = EventPriority.MONITOR)
+    @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
         if (e.isCancelled()) return;
 

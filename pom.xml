@@ -36,9 +36,10 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <outputDirectory>C:/Users/Gustav/Desktop/Test server/plugins/wyvencore/addons</outputDirectory>
+                    <!--                    <outputDirectory>C:/Users/Gustav/Desktop/Test server/plugins/wyvencore/addons</outputDirectory>-->
                     <!--                    <outputDirectory>/Users/Gustav/Desktop/Test server/plugins</outputDirectory>-->
-                    <!--                    <outputDirectory>/Users/gustavhaavik/Desktop</outputDirectory>-->
+<!--                    <outputDirectory>/Users/gustavhaavik/Documents/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>-->
+                    <outputDirectory>/Users/gustavhaavik/Desktop/test server/plugins/WyvenCore/addons</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -46,7 +47,24 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
                 <configuration>
-                    <!-- put your configurations here -->
+                    <minimizeJar>true</minimizeJar>
+                    <artifactSet>
+                        <excludes>
+                            <exclude>com.cryptomorin.xseries:*</exclude>
+                            <exclude>io.github.bananapuncher714:*</exclude>
+                            <exclude>io.github.portlek:*</exclude>
+                            <exclude>com.github.wyvencraft:WyvenAPI</exclude>
+                            <exclude>org.jetbrains:annotations</exclude>
+                        </excludes>
+                    </artifactSet>
+                    <filters>
+                        <filter>
+                            <artifact>*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
                 </configuration>
                 <executions>
                     <execution>
@@ -78,13 +96,13 @@
         <dependency>
             <groupId>com.destroystokyo.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.wyvencraft</groupId>
             <artifactId>WyvenAPI</artifactId>
-            <version>1.0.8</version>
+            <version>1.0.10</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
