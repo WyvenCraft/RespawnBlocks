@@ -40,7 +40,8 @@
                     <!--                    <outputDirectory>/Users/Gustav/Desktop/Test server/plugins</outputDirectory>-->
                     <!--                    <outputDirectory>/Users/gustavhaavik/Documents/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>-->
                     <!--                    <outputDirectory>/Users/gustavhaavik/Desktop/test server/plugins/WyvenCore/addons</outputDirectory>-->
-                    <outputDirectory>C:/Users/gkhaa/OneDrive/Skrivebord/testserver/plugins/WyvenCore/addons</outputDirectory>
+                    <!--                    <outputDirectory>C:/Users/gkhaa/OneDrive/Skrivebord/testserver/plugins/WyvenCore/addons</outputDirectory>-->
+                    <outputDirectory>D:/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
