@@ -27,58 +27,25 @@ public class RespawnBlocks extends Addon {
         instance = this;
     }
 
-    List<RespawnBlock> respawnBlocks;
+    Map<Material, List<RespawnBlock>> respawnBlocks = new HashMap<>();
     public HashMap<Location, RespawnTimer> broken = new HashMap<>();
 
     @Override
     public void onLoad() {
         saveDefaultConfig("respawnblocks.yml");
-
-        FileConfiguration config = getConfig("respawnblocks.yml");
-        respawnBlocks = new ArrayList<RespawnBlock>() {{
-            for (String material : config.getConfigurationSection("Block_Regen").getKeys(false)) {
-                Material mat = Material.getMaterial(material);
-                if (mat == null) {
-                    getPlugin().getLogger().severe("regen block " + material + " is not a valid material");
-                    continue;
-                }
-
-                ConfigurationSection matSection = config.getConfigurationSection("Block_Regen." + material);
-
-                int delay = matSection.getInt("resetDelay", 0);
-
-                if (delay < 1) {
-                    getPlugin().getLogger().severe("make sure that delay for " + material + " is greater than zero. (auto setting to 1)");
-                    delay = 1;
-                }
-
-                List<String> worlds = matSection.getStringList("worlds");
-
-                List<String> regions = null;
-                if (Hook.isEnabled("WorldGuard")) {
-                    regions = matSection.getStringList("regions");
-                }
-
-                Material placeholder = Material.getMaterial(matSection.getString("placeholder", "BEDROCK"));
-                if (placeholder == null) {
-                    getPlugin().getLogger().severe("regen placeholder block " + material + " is not a valid material");
-                    continue;
-                }
-
-                add(new RespawnBlock(mat, placeholder, delay, worlds, regions));
-            }
-        }};
     }
 
     public RespawnBlock getRespawnBlock(Block block) {
-        for (RespawnBlock respawnBlock : respawnBlocks) {
+        if (!respawnBlocks.containsKey(block.getType())) return null;
+
+        for (RespawnBlock respawnBlock : respawnBlocks.get(block.getType())) {
             if (respawnBlock.getMaterial() != block.getType()) continue;
 
             if (!respawnBlock.getWorlds().isEmpty() && !respawnBlock.getWorlds().contains(block.getWorld().getName()))
                 continue;
 
             if (Hook.isEnabled("WorldGuard")) {
-                if (respawnBlock.getRegions() != null && !respawnBlock.getRegions().isEmpty()) {
+                if (!respawnBlock.getRegions().isEmpty()) {
                     RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
                     RegionManager regions = container.get(BukkitAdapter.adapt(block.getWorld()));
 
@@ -90,8 +57,8 @@ public class RespawnBlocks extends Addon {
                                 }
                             }
                         }
-                        return null;
                     }
+                    return null;
                 }
             }
 
@@ -104,6 +71,55 @@ public class RespawnBlocks extends Addon {
     @Override
     public void onEnable() {
         getPlugin().getAddonHandler().registerListener(this, new Listener());
+
+        FileConfiguration config = getConfig("respawnblocks.yml");
+        for (String matName1 : config.getKeys(false)) {
+
+            Material key = Material.getMaterial(matName1.toUpperCase());
+            if (key == null) {
+                getPlugin().getLogger().severe("regen block " + matName1 + " is not a valid material");
+                continue;
+            }
+
+            if (respawnBlocks.containsKey(key)) continue;
+
+            List<RespawnBlock> value = new ArrayList<>();
+            for (String matName2 : config.getKeys(false)) {
+                if (!matName1.equalsIgnoreCase(matName2)) continue;
+
+                Material mat = Material.getMaterial(matName2.toUpperCase());
+                if (mat == null) {
+                    getPlugin().getLogger().severe("regen block " + matName2 + " is not a valid material");
+                    continue;
+                }
+
+                ConfigurationSection matSection = config.getConfigurationSection(matName2);
+                if (matSection == null) continue;
+
+                int delay = matSection.getInt("resetDelay", 0);
+                if (delay < 1) {
+                    getPlugin().getLogger().severe("make sure that delay for " + matName2 + " is greater than zero. (auto setting to 1)");
+                    delay = 1;
+                }
+
+                List<String> worlds = matSection.getStringList("worlds");
+
+                List<String> regions = new ArrayList<>();
+                if (Hook.isEnabled("WorldGuard")) {
+                    regions = matSection.getStringList("regions");
+                }
+
+                Material placeholder = Material.getMaterial(matSection.getString("placeholder", "BEDROCK"));
+                if (placeholder == null) {
+                    getPlugin().getLogger().severe("regen placeholder block " + matName2 + " is not a valid material");
+                    continue;
+                }
+
+                value.add(new RespawnBlock(mat, placeholder, delay, worlds, regions));
+            }
+
+            respawnBlocks.put(key, value);
+        }
     }
 
     @Override
