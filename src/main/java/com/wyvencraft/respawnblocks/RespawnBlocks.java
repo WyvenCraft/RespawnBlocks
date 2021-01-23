@@ -12,7 +12,6 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.scheduler.BukkitTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +28,7 @@ public class RespawnBlocks extends Addon {
     }
 
     List<RespawnBlock> respawnBlocks;
-    public HashMap<Location, BukkitTask> broken = new HashMap<>();
+    public HashMap<Location, RespawnTimer> broken = new HashMap<>();
 
     @Override
     public void onLoad() {
@@ -109,7 +108,16 @@ public class RespawnBlocks extends Addon {
 
     @Override
     public void onDisable() {
+        int fixedAmount = 0;
         // Stop tasks and reset all broken blocks
+        for (Map.Entry<Location, RespawnTimer> broken : broken.entrySet()) {
+            broken.getValue().cancel();
+            broken.getValue().resetBlockState();
+            fixedAmount++;
+        }
+
+        if (fixedAmount > 0)
+            getPlugin().getLogger().info("Cleared " + fixedAmount + " blocks");
     }
 
     @Override

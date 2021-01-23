@@ -38,8 +38,9 @@
                 <configuration>
                     <!--                    <outputDirectory>C:/Users/Gustav/Desktop/Test server/plugins/wyvencore/addons</outputDirectory>-->
                     <!--                    <outputDirectory>/Users/Gustav/Desktop/Test server/plugins</outputDirectory>-->
-<!--                    <outputDirectory>/Users/gustavhaavik/Documents/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>-->
-                    <outputDirectory>/Users/gustavhaavik/Desktop/test server/plugins/WyvenCore/addons</outputDirectory>
+                    <!--                    <outputDirectory>/Users/gustavhaavik/Documents/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>-->
+                    <!--                    <outputDirectory>/Users/gustavhaavik/Desktop/test server/plugins/WyvenCore/addons</outputDirectory>-->
+                    <outputDirectory>C:/Users/gkhaa/OneDrive/Skrivebord/testserver/plugins/WyvenCore/addons</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>
@@ -102,7 +103,7 @@
         <dependency>
             <groupId>com.github.wyvencraft</groupId>
             <artifactId>WyvenAPI</artifactId>
-            <version>1.0.10</version>
+            <version>1.0.11</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
