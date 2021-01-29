@@ -26,7 +26,7 @@
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.2.0</version>
         <configuration>
-          <outputDirectory>/Users/gustavhaavik/Documents/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>
+          <outputDirectory>C:/Users/gkhaa/OneDrive/Skrivebord/testserver/plugins/WyvenCore/addons</outputDirectory>
         </configuration>
       </plugin>
       <plugin>
@@ -44,11 +44,11 @@
           <minimizeJar>true</minimizeJar>
           <artifactSet>
             <excludes>
+              <exclude>com.cryptomorin.xseries:*</exclude>
               <exclude>io.github.bananapuncher714:*</exclude>
               <exclude>io.github.portlek:*</exclude>
-              <exclude>com.destroystokyo:*</exclude>
               <exclude>com.github.wyvencraft:WyvenAPI</exclude>
-              <exclude>org.jetbrains.annotations:*</exclude>
+              <exclude>org.jetbrains:annotations</exclude>
             </excludes>
           </artifactSet>
           <filters>
@@ -85,9 +85,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.github.wyvencraft</groupId>
-      <artifactId>WyvenAPI</artifactId>
-      <version>1.0.9</version>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>RELEASE</version>
       <scope>compile</scope>
     </dependency>
     <dependency>

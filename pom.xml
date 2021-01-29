@@ -40,8 +40,9 @@
                     <!--                    <outputDirectory>/Users/Gustav/Desktop/Test server/plugins</outputDirectory>-->
                     <!--                    <outputDirectory>/Users/gustavhaavik/Documents/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>-->
                     <!--                    <outputDirectory>/Users/gustavhaavik/Desktop/test server/plugins/WyvenCore/addons</outputDirectory>-->
-                    <!--                    <outputDirectory>C:/Users/gkhaa/OneDrive/Skrivebord/testserver/plugins/WyvenCore/addons</outputDirectory>-->
-                    <outputDirectory>D:/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>
+                    <outputDirectory>C:/Users/gkhaa/OneDrive/Skrivebord/testserver/plugins/WyvenCore/addons
+                    </outputDirectory>
+                    <!--                    <outputDirectory>D:/WyvenCraftServer/server/plugins/WyvenCore/addons</outputDirectory>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -56,6 +57,7 @@
                             <exclude>io.github.bananapuncher714:*</exclude>
                             <exclude>io.github.portlek:*</exclude>
                             <exclude>com.github.wyvencraft:WyvenAPI</exclude>
+                            <exclude>com.wyvencraft:WyvenAPI</exclude>
                             <exclude>org.jetbrains:annotations</exclude>
                         </excludes>
                     </artifactSet>
@@ -101,10 +103,15 @@
             <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.github.wyvencraft</groupId>-->
+        <!--            <artifactId>WyvenAPI</artifactId>-->
+        <!--            <version>1.0.11</version>-->
+        <!--        </dependency>-->
         <dependency>
-            <groupId>com.github.wyvencraft</groupId>
+            <groupId>com.wyvencraft</groupId>
             <artifactId>WyvenAPI</artifactId>
-            <version>1.0.11</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
